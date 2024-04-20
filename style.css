@@ -1,0 +1,64 @@
+:root {
+    --background: hsl(0, 0%, 12%);
+    --text: hsl(0, 0%, 80%);
+    --clear: hsl(0, 0%, 65%);
+    --disabled: hsl(0, 0%, 35%);
+    --purple: #bb73e6;
+    --vertFluo: #00ff1a;
+  }
+
+body {
+    background: var(--clear);
+    display: flex;
+}
+
+#plateau {
+    border: 5px solid var(--purple);
+    background: var(--purple);
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    grid-template-rows: repeat(20, 0fr);
+    margin-left: 100px;
+    width: 420px;
+}
+
+#startButton{
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.cell{
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 1px solid var(--background)
+}
+
+.I{
+    background: cyan;
+}
+
+.J{
+    background: blue;
+}
+
+.L{
+    background: orange;
+}
+
+.O{
+    background: yellow;
+}
+
+.S{
+    background: green;
+}
+
+.Z{
+    background: red;
+}
+
+.T{
+    background: violet;
+}
