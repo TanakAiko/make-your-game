@@ -60,13 +60,13 @@ export class Tetromino {
             const line = newShape[i];
             for (let j = 0; j < line.length; j++) {
                 if (line[j] === 'void') continue
-                if (board.grid[this.position[0]+i][this.position[1]+j] !== 'void') {
+                if (board.grid[this.position[0] + i][this.position[1] + j] !== 'void') {
                     this.addoTetro(board)
                     return
                 }
             }
         }
-    
+
         this.shape = newShape
 
         let divAdd = this.addoTetro(board)
@@ -113,8 +113,11 @@ export class Tetromino {
                 if (this.position[1] === 0) return true;
 
                 for (let i = 0; i < this.shape.length; i++) {
-                    if (this.shape[i][0] === 'void') continue
-                    if (board.grid[this.position[0] + i][this.position[1] - 1] !== 'void') return true;
+                    for (let j = 0; j < this.shape[0].length; j++) {
+                        if (this.shape[i][j] === 'void') continue
+                        if (board.grid[this.position[0] + i][this.position[1] + j - 1] !== 'void') return true
+                        break
+                    }
                 }
 
                 break;
@@ -122,8 +125,11 @@ export class Tetromino {
                 if (this.position[1] + this.shape[0].length === board.grid[0].length) return true;
 
                 for (let i = 0; i < this.shape.length; i++) {
-                    if (this.shape[i][this.shape[0].length-1] === 'void') continue
-                    if (board.grid[this.position[0] + i][this.position[1] + this.shape[0].length] !== 'void') return true
+                    for (let j = this.shape[0].length - 1; j >= 0; j--) {
+                        if (this.shape[i][j] === 'void') continue
+                        if (board.grid[this.position[0] + i][this.position[1] + j + 1] !== 'void') return true
+                        break
+                    }
                 }
 
                 break;
@@ -131,8 +137,11 @@ export class Tetromino {
                 if (this.position[0] + this.shape.length === board.grid.length) return true;
 
                 for (let j = 0; j < this.shape[0].length; j++) {
-                    if (this.shape[this.shape.length-1][j] === 'void') continue
-                    if (board.grid[this.position[0] + this.shape.length][this.position[1] + j] !== 'void') return true;
+                    for (let i = this.shape.length - 1; i >= 0; i--) {
+                        if (this.shape[i][j] === 'void') continue
+                        if (board.grid[this.position[0] + i + 1][this.position[1] + j] !== 'void') return true
+                        break
+                    }
                 }
 
                 break;
