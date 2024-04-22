@@ -42,9 +42,9 @@ export class Tetromino {
     rotate(board) {
         let divDel = this.deletoTetro(board)
 
-        while (this.position[0] + this.shape[0].length > board.grid.length) this.position[0]--;
+        if (this.position[0] + this.shape[0].length > board.grid.length) return;
 
-        while (this.position[1] + this.shape.length > board.grid[0].length) this.position[1]--;
+        if (this.position[1] + this.shape.length > board.grid[0].length) return;
 
         var newShape = []
         for (let j = 0; j < this.shape[0].length; j++) {
@@ -55,6 +55,18 @@ export class Tetromino {
             }
             newShape.push(newLine)
         }
+
+        for (let i = 0; i < newShape.length; i++) {
+            const line = newShape[i];
+            for (let j = 0; j < line.length; j++) {
+                if (line[j] === 'void') continue
+                if (board.grid[this.position[0]+i][this.position[1]+j] !== 'void') {
+                    this.addoTetro(board)
+                    return
+                }
+            }
+        }
+    
         this.shape = newShape
 
         let divAdd = this.addoTetro(board)
@@ -108,16 +120,20 @@ export class Tetromino {
                 break;
             case 'right':
                 if (this.position[1] + this.shape[0].length === board.grid[0].length) return true;
+
+                for (let i = 0; i < this.shape.length; i++) {
+                    if (this.shape[i][this.shape[0].length-1] === 'void') continue
+                    if (board.grid[this.position[0] + i][this.position[1] + this.shape[0].length] !== 'void') return true
+                }
+
                 break;
             case 'down':
                 if (this.position[0] + this.shape.length === board.grid.length) return true;
-
 
                 for (let j = 0; j < this.shape[0].length; j++) {
                     if (this.shape[this.shape.length-1][j] === 'void') continue
                     if (board.grid[this.position[0] + this.shape.length][this.position[1] + j] !== 'void') return true;
                 }
-
 
                 break;
         }
