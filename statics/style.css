@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --background: hsl(0, 0%, 12%);
+    --text: hsl(0, 0%, 80%);
+    --clear: hsl(0, 0%, 65%);
+    --disabled: hsl(0, 0%, 35%);
+    --purple: #bb73e6;
+    --vertFluo: #00ff1a;
+    --all-blocks-color: magenta;
+    --police: "Press Start 2P";
+}
+
+* {
+    font-family: var(--police);
+}
+
+body {
+    background: var(--clear);
+    display: flex;
+    font-family: var(--police);
+    justify-content: center;
+    background: url('https://t4.ftcdn.net/jpg/03/01/90/79/360_F_301907970_ZVaPcSGe9rgYgRMRGUcbf91YxNwB7d2W.jpg') cover no-repeat;
+}
+
+#allOtherStuf {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    /* Aligns items to the start of the container */
+}
+
+#theButtons {
+    display: flex;
+    align-items: flex-start;
+    /* Aligne les boutons au début du conteneur */
+    gap: 10px;
+    /* Ajoute de l'espace entre les boutons */
+}
+
+#nextPieceLabel {
+    font-size: 24px;
+    /* Augmente la taille du texte */
+    font-weight: bold;
+    /* Met le texte en gras */
+}
+
+#feature {
+    background: rgb(0, 0, 92);
+    width: 240px;
+    height: fit-content;
+
+    text-align: center;
+    border: 2px solid var(--text);
+}
+
+
+
+#timeHandler,
+#scoreHandler {
+    background: var(--purple);
+    height: 40px;
+    border: 1px solid black;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#plateau {
+    border: 5px solid var(--text);
+    background: var(--purple);
+    display: grid;
+    grid-template-columns: repeat(10, 0fr);
+    grid-template-rows: repeat(20, 0fr);
+    margin-left: 100px;
+    width: 420px;
+}
+
+#nextTetroDiv {
+    border: 5px solid var(--text);
+    background: black;
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    grid-template-rows: repeat(2, 0fr);
+
+    width: 168px;
+    height: 84px;
+}
+
+.button {
+    cursor: pointer;
+    /* padding: 15px 40px 15px 40px; */
+    border-radius: 10px;
+    border-style: double;
+    font-weight: 600;
+    background-image: linear-gradient(rgb(54, 53, 53),
+            rgb(0, 0, 0),
+            rgb(54, 54, 54));
+    color: rgb(164, 164, 162);
+    border-color: rgb(0, 0, 0);
+    transition: 400ms;
+    /* text-align: center; */
+}
+
+.button:hover {
+    transition: 400ms;
+    border-style: double;
+    border-color: rgb(208, 207, 207);
+    color: rgb(219, 216, 216);
+    font-size: 13px;
+    text-shadow: 1px 10px 5px rgb(61, 61, 61);
+}
+
+#startButton {
+    width: 100px;
+    height: 50px;
+}
+
+#pauseButton, #resumeButton, #reStartButton {
+    width: 100px;
+    height: 50px;
+    display: none;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background: black;
+    border: 1px solid var(--background)
+}
+
+.I {
+    background: cyan;
+    box-shadow: 0 0 20px cyan;
+    background-image: linear-gradient(45deg, cyan, 0.75);
+}
+
+.J {
+    background: blue;
+    box-shadow: 0 0 20px blue;
+    background-image: linear-gradient(45deg, blue, 0.75);
+}
+
+.L {
+    background: orange;
+    box-shadow: 0 0 20px orange;
+    background-image: linear-gradient(45deg, orange, 0.75);
+}
+
+.O {
+    background: yellow;
+    box-shadow: 0 0 20px yellow;
+    background-image: linear-gradient(45deg, yellow, 0.75);
+}
+
+.S {
+    background: green;
+    box-shadow: 0 0 20px green;
+    background-image: linear-gradient(45deg, green, 0.75);
+}
+
+.Z {
+    background: red;
+    box-shadow: 0 0 20px red;
+    background-image: linear-gradient(45deg, red, 0.75);
+}
+
+.T {
+    background: violet;
+    box-shadow: 0 0 20px violet;
+    background-image: linear-gradient(45deg, violet, 0.75);
+}
+
+.colors {
+    /* border: 2px solid black; */
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 65px;
+}
+
+.row1 {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 5px;
+}
+
+
+.row2 {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: -5px;
+}
+
+#apply_blue {
+    background: blue;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#apply_green {
+    background: green;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#apply_orange {
+    background: orange;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#apply_cyan {
+    background: cyan;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#apply_violet {
+    background: violet;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+/* #apply_yellow {
+    background: yellow;
+    width: 25px;
+    height: 25px;
+} */
+
+#apply_red {
+    background: red;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#first {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-left: 5px;
+}
+
+.A {
+    border: 2px solid black;
+    width: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p {
+    border: 2px solid black;
+    width: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgLeft {
+    width: 18px;
+    margin-left: 5px;
+}
+
+.block1 {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    border-radius: 10px;
+    margin-left: 20px;
+    height: 30px;
+}
+
+.pauseResume {
+    display: flex;
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Contenu du modal */
+.modal-content {
+   /* background: var(--clear) ; */
+    /* background-size: cover; Ajuste la taille de l'image pour couvrir tout le contenu */
+    /* background-repeat: no-repeat; Évite la répétition de l'image */
+    margin: 15% auto; 
+    margin-left: 625px;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width:400px ; 
+    height: 450px;
+    border-radius: 20px;
+    align-self: center;
+    border: 20px solid #888;
+    
+    
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+  
+#myScore {
+    background: #bb73e6;
+    width: 200px;
+    height: 100px;
+    margin-left: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.labelForPlayerName{
+    color: white;
+    font-size: 25px;
+    margin-top: 35px;
+}
+input{
+    margin-top: 15px;
+    width: 200px;
+    height: 80px;
+    cursor: pointer;
+    text-align: center;
+}
+#submit{
+    /* cursor: pointer; */
+    margin-top: 15px;
+    width: 100px;
+    height: 50px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#showRank{
+    width: 250px;
+    height: 50px;
+}
+
+/* Bouton pour fermer le modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

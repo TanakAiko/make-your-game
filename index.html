@@ -4,14 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./statics/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./images/"> -->
     <title>Tetris</title>
+    <style id="Style"></style>
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h1>YOUR SCORE</h1>
+            <div id="myScore"> <div>here</div></div>
+            <div class="form">
+                <div  class="form">
+                    <label for="playerName" class="labelForPlayerName">ENTER YOUR NAME</label>
+                    <input type="text" id="playerName" name="name" required>
+                    <button id="submit" class="button" >OK</button>
+                </div>
+            </div>
+        
+            <!-- <img src="https://static.vecteezy.com/system/resources/thumbnails/014/894/538/small_2x/8-bit-pixel-text-game-over-background-icon-for-game-assets-in-illustrations-vector.jpg" alt=""> -->
+        </div>
+    </div>
+
+
+
+    <div>
+        <h3>KEYBOARD <br> CONTROLS</h3>
+        <h4>move LEFT</h4>
+        <div id="first">
+            <div class="A">A</div>
+            <div class="block1"><img src="./statics/images/left.webp" alt="" class="imgLeft"></div>
+        </div>
+        <h4>move RIGHT</h4>
+        <div id="first">
+            <div class="A">D</div>
+            <div class="block1"><img src="./statics/images/right.svg" alt="" class="imgLeft"></div>
+        </div>
+        <h4>move DOWN</h4>
+        <div id="first">
+            <div class="A">S</div>
+            <div class="block1"><img src="./statics/images/down.png" alt="" class="imgLeft"></div>
+        </div>
+
+        <h4>rotate</h4>
+        <div id="first">
+            <div class="A">W</div>
+            <div class="block1"><img src="./statics/images/up.png" alt="" class="imgLeft"></div>
+        </div>
+        <h4>PAUSE</h4>
+        <div id="first">
+            <div class="block1">P</div>
+        </div>
+        <h4>RESUME</h4>
+        <div id="first">
+            <div class="block1">M</div>
+        </div>
+    </div>
     <div id="plateau"></div>
-    <button type="button" id="startButton">start</button>
-    <script type="module" src="./main.js"></script>
+
+    <script type="module" src="./statics/js/main.js"></script>
+
+    <div id="allOtherStuf">
+        <div id="theButtons">
+            <button type="button" id="startButton" class="button">start</button>
+            <button type="button" id="reStartButton" class="button">reStart</button>
+            <button type="button" id="pauseButton" class="button">pause</button>
+            <button type="button" id="resumeButton" class="button">resume</button>
+        </div>
+
+        <div id="feature">
+            <div id="scoreHandler">Score : <b id="scoreValue">0</b></div>
+            <div id="timeHandler">Time left : <b id="timeValue">0</b></div>
+        </div>
+
+        <div id="nextBlock">
+            <label for="nextTetroDiv" id="nextPieceLabel">NEXT PIECE :</label>
+            <div id="nextTetroDiv"></div>
+        </div>
+
+        <div class="colors">
+            <div class="row1">
+                <div id="apply_blue"></div>
+                <!-- <div class="yellow"></div> -->
+                <div id="apply_red"></div>
+                <div id="apply_green"></div>
+            </div>
+            <div class="row2">
+                <div id="apply_violet"></div>
+                <div id="apply_cyan"></div>
+                <div id="apply_orange"></div>
+                <!-- <div class="pink"></div> -->
+            </div>
+        </div>
+
+        <button type="button" id="showRank" class="button">Table of ranks</button>
+    </div>
+
 </body>
 
 </html>

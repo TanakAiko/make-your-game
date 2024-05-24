@@ -1,0 +1,32 @@
+[
+ {
+  "name": "Fern",
+  "score": 3500,
+  "time": 180,
+  "rank": 1
+ },
+ {
+  "name": "Flamme",
+  "score": 900,
+  "time": 62,
+  "rank": 2
+ },
+ {
+  "name": "Immel",
+  "score": 200,
+  "time": 25,
+  "rank": 3
+ },
+ {
+  "name": "Frieren",
+  "score": 100,
+  "time": 26,
+  "rank": 4
+ },
+ {
+  "name": "Stark",
+  "score": 0,
+  "time": 7,
+  "rank": 5
+ }
+]
