@@ -113,12 +113,15 @@ body {
     text-shadow: 1px 10px 5px rgb(61, 61, 61);
 }
 
-#startButton {
+#startButton,
+#scoreBack {
     width: 100px;
     height: 50px;
 }
 
-#pauseButton, #resumeButton, #reStartButton {
+#pauseButton,
+#resumeButton,
+#reStartButton {
     width: 100px;
     height: 50px;
     display: none;
@@ -294,6 +297,8 @@ body {
 /* Modal */
 .modal {
     display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -306,26 +311,38 @@ body {
 
 /* Contenu du modal */
 .modal-content {
-   /* background: var(--clear) ; */
+    /* background: var(--clear) ; */
     /* background-size: cover; Ajuste la taille de l'image pour couvrir tout le contenu */
     /* background-repeat: no-repeat; Évite la répétition de l'image */
-    margin: 15% auto; 
+    margin: 15% auto;
     margin-left: 625px;
     padding: 20px;
     /* border: 1px solid #888; */
-    width:400px ; 
+    width: 400px;
     height: 450px;
     border-radius: 20px;
     align-self: center;
     border: 20px solid #888;
-    
-    
 }
+
+.score-modal-content {
+    background-color: var(--purple);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    align-self: center;
+    border: 10px solid #888;
+}
+
+th {
+    padding: 8px 20px;
+}
+
 h1 {
     color: white;
     text-align: center;
 }
-  
+
 #myScore {
     background: #bb73e6;
     width: 200px;
@@ -335,32 +352,36 @@ h1 {
     align-items: center;
     justify-content: center;
 }
-.labelForPlayerName{
+
+.labelForPlayerName {
     color: white;
     font-size: 25px;
     margin-top: 35px;
 }
-input{
+
+input {
     margin-top: 15px;
     width: 200px;
     height: 80px;
     cursor: pointer;
     text-align: center;
 }
-#submit{
+
+#submit {
     /* cursor: pointer; */
     margin-top: 15px;
     width: 100px;
     height: 50px;
 }
-.form{
+
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#showRank{
+#showRank {
     width: 250px;
     height: 50px;
 }

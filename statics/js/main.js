@@ -111,7 +111,40 @@ tableOfRanks.addEventListener("click", () => {
   ws.send("ToR")
   ws.onmessage = (event) => {
     console.log('data: ', event.data);
+    displayTOR(event.data)
   }
+})
+
+function displayTOR(data) {
+  var tOr = document.getElementById("TOR")
+
+  tOr.innerHTML = `
+  <caption>Table of Ranks</caption>
+  <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Time</th>
+  </tr>`
+
+  var jsonData = JSON.parse(data)
+
+  jsonData.forEach(score => {
+    tOr.innerHTML += `
+    <tr>
+      <th>${score.rank}</th>
+      <th>${score.name}</th>
+      <th>${score.score}</th>
+      <th>${score.time}</th>
+    </tr>
+  ` 
+  });
+
+  openScoreModal()
+}
+
+document.getElementById("scoreBack").addEventListener('click', (event) => {
+  closeScoreModal()
 })
 
 const startButton = document.getElementById("startButton");
@@ -218,20 +251,20 @@ function endGame() {
   scoreFinal.textContent = gameChanger.score.score;
 
   let name = document.getElementById("playerName");
-  
+
   function sendData() {
     let SCORE = gameChanger.score.score
     let TIME = durationInSecond - gameChanger.timer.remainingSeconds
 
     //console.log('name: ', name.value, ' - SCORE: ', SCORE, ' - TIME: ', TIME);
-  
+
     if (ws.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify({ name: name.value, score: +SCORE, time: +TIME, rank: 0 }));
     } else {
       console.log("WebSocket is not open. ReadyState: ", ws.readyState);
     }
   }
-  
+
   var buttonOk = document.getElementById('submit');
   buttonOk.addEventListener("click", (event) => {
     if (name.value === "") return
@@ -302,12 +335,21 @@ function moveTetroDown(gameChanger, board) {
 
 // open the modal
 function openModal() {
-  document.getElementById("myModal").style.display = "block";
+  document.getElementById("myModal").style.display = "flex";
 }
 
 // close modal
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
+}
+
+function openScoreModal() {
+  document.getElementById("scoreModal").style.display = "flex";
+}
+
+// close modal
+function closeScoreModal() {
+  document.getElementById("scoreModal").style.display = "none";
 }
 
 // close modal id the user clicks out of it

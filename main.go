@@ -42,7 +42,6 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if string(data) == "ToR" {
-			fmt.Println("ToR")
 			content, err := os.ReadFile("score.json")
 			if err != nil && !os.IsNotExist(err) {
 				http.Error(w, "Internal server error", http.StatusInternalServerError)
@@ -135,8 +134,6 @@ func setRank(tabScore []ScoreData) {
 	for i := range tabScore {
 		tabScore[i].Rank = i + 1
 	}
-
-	fmt.Println(tabScore)
 }
 
 func main() {
