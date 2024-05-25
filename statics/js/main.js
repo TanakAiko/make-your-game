@@ -7,6 +7,7 @@ import { TimeManager } from "./timeManager.js";
 var ongoingGame = false;
 var isPaused = false;
 var durationInSecond = 180;
+var lastNamePlayer = ""
 var indexPage = 0
 var maxPage = 0
 
@@ -86,7 +87,6 @@ function pPListener() {
 }
 var pPHandle = pPListener()
 
-
 var resumeButton = document.getElementById("resumeButton");
 resumeButton.addEventListener("click", () => {
   if (isPaused && ongoingGame) {
@@ -108,12 +108,12 @@ function mMListener() {
 }
 var mMHandle = mMListener()
 
+const percentilMess = document.getElementById("percentilMess")
 const tableOfRanks = document.getElementById("showRank")
 tableOfRanks.addEventListener("click", () => {
   ws.send("ToR")
   ws.onmessage = (event) => {
     displayTOR(event.data)
-
   }
 })
 
@@ -161,6 +161,12 @@ function displayTOR(data) {
   openScoreModal()
 }
 
+/* function setPersentilMess(name, score) {
+  percentilMess.innerHTML = `
+    <p>Congrats ${name}, you are in the top 6%, on the 2nd position.</p>
+  `
+} */
+
 function chunk(tab, size) {
   const subTab = [];
   for (let i = 0; i < tab.length; i += size) {
@@ -170,6 +176,8 @@ function chunk(tab, size) {
 }
 
 document.getElementById("scoreBack").addEventListener('click', (event) => {
+  indexPage = 0
+  percentilMess.style.display = "none"
   closeScoreModal()
 })
 
@@ -303,6 +311,8 @@ function endGame() {
     sendData();
     closeModal();
     name.value = ""
+    percentilMess.style.display = "block"
+    tableOfRanks.click()
   });
 }
 

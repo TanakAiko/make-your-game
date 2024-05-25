@@ -120,6 +120,7 @@ body {
 
 #scoreBack {
     margin-top: 10px;
+    margin-bottom: 5px;
     width: 100px;
     height: 50px;
 }
@@ -337,10 +338,21 @@ body {
     height: fit-content;
     border-radius: 20px;
     /* align-self: center; */
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     border: 10px solid #888;
+}
+
+#TOR{
+    width: 700px;
+    height: 250px;
+}
+
+caption{
+    height: 50px;
+    font-size: x-large;
+    margin-top: 50px;
 }
 
 th {
