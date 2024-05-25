@@ -8,6 +8,7 @@ var ongoingGame = false;
 var isPaused = false;
 var durationInSecond = 180;
 var lastNamePlayer = ""
+var lastScorePlayer  = 0
 var indexPage = 0
 var maxPage = 0
 
@@ -141,7 +142,8 @@ function displayTOR(data) {
   <th>Time</th>
   </tr>`
   
-  var tabPage = chunk(JSON.parse(data), 5)
+  const tabPlayer = JSON.parse(data)
+  const tabPage = chunk(tabPlayer, 5)
   maxPage = tabPage.length - 1
   const jsonData = tabPage[indexPage]
 
@@ -158,14 +160,17 @@ function displayTOR(data) {
   document.getElementById("numPage").innerHTML = `
     <p>${indexPage+1}/${maxPage+1}</p>
   `
+  setPersentilMess(lastNamePlayer, lastScorePlayer, tabPlayer)
   openScoreModal()
 }
 
-/* function setPersentilMess(name, score) {
+function setPersentilMess(name, score, tab) {
+  const player = tab.filter(element => element.name === name && element.score === score )
+  var percentil = Math.floor((player[0]?.rank/tab.length)*100)
   percentilMess.innerHTML = `
-    <p>Congrats ${name}, you are in the top 6%, on the 2nd position.</p>
+    <p>Congrats ${player[0]?.name}, you are in the top ${percentil}%, you're the number ${player[0]?.rank}.</p>
   `
-} */
+}
 
 function chunk(tab, size) {
   const subTab = [];
@@ -220,8 +225,6 @@ function handleOneGame() {
   var score = new ScoreManager(0, 0);
   var countdown = new TimeManager(1000 * durationInSecond);
 
-  //console.log(gameChanger.board);
-
   gameChanger.score = score;
   gameChanger.timer = countdown;
   gameChanger.timer.updateCountdown(endGame);
@@ -233,8 +236,6 @@ function handleOneGame() {
 
   gameChanger.currentTetro = currentTetro;
   gameChanger.nextTetro = nextTetro;
-  //console.log('currentTetro: ', gameChanger.currentTetro);
-  //console.log('nextTetro: ', gameChanger.nextTetro);
 
   board.placeTetro(gameChanger.currentTetro);
   gameChanger.render();
@@ -275,7 +276,6 @@ function moveTetro() {
 // var SCORE  = gameChanger.score.score;
 // var TIME = gameChanger.countdown
 function endGame() {
-  //console.log("Collision or time's over");
   stopGravityInterval(gravityInterval);
   ongoingGame = false;
   document.removeEventListener("keydown", keydownHandler);
@@ -296,7 +296,8 @@ function endGame() {
     let SCORE = gameChanger.score.score
     let TIME = durationInSecond - gameChanger.timer.remainingSeconds
 
-    //console.log('name: ', name.value, ' - SCORE: ', SCORE, ' - TIME: ', TIME);
+    lastNamePlayer = name.value
+    lastScorePlayer = SCORE
 
     if (ws.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify({ name: name.value, score: +SCORE, time: +TIME, rank: 0 }));
@@ -364,7 +365,6 @@ function moveTetroDown(gameChanger, board) {
 
     gameChanger.nextTetro = nextT;
     gameChanger.renderNextTetroDiv(gameChanger.nextTetro);
-    //console.log(gameChanger.nextTetro, '*********');
 
     toUpdate = {
       divDel: [],

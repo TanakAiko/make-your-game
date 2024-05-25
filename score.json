@@ -36,68 +36,68 @@
   "rank": 6
  },
  {
-  "name": "subaru",
-  "score": 2800,
+  "name": "Tinasha",
+  "score": 2900,
   "time": 180,
   "rank": 7
  },
  {
-  "name": "EUphemia",
-  "score": 2700,
+  "name": "Madara",
+  "score": 2800,
   "time": 180,
   "rank": 8
+ },
+ {
+  "name": "subaru",
+  "score": 2800,
+  "time": 180,
+  "rank": 9
  },
  {
   "name": "Sakura Haruno",
   "score": 2700,
   "time": 180,
-  "rank": 9
+  "rank": 10
+ },
+ {
+  "name": "EUphemia",
+  "score": 2700,
+  "time": 180,
+  "rank": 11
  },
  {
   "name": "Aisha",
   "score": 2600,
   "time": 180,
-  "rank": 10
+  "rank": 12
  },
  {
   "name": "Snizel",
   "score": 2500,
   "time": 180,
-  "rank": 11
+  "rank": 13
  },
  {
   "name": "Rudeus",
   "score": 2500,
   "time": 180,
-  "rank": 12
+  "rank": 14
  },
  {
   "name": "Naruto",
   "score": 2500,
   "time": 180,
-  "rank": 13
+  "rank": 15
  },
  {
   "name": "Ottoh",
   "score": 2200,
   "time": 180,
-  "rank": 14
+  "rank": 16
  },
  {
   "name": "Moi",
   "score": 2000,
-  "time": 180,
-  "rank": 15
- },
- {
-  "name": "Anna",
-  "score": 1900,
-  "time": 151,
-  "rank": 16
- },
- {
-  "name": "CC",
-  "score": 1900,
   "time": 180,
   "rank": 17
  },
@@ -108,69 +108,111 @@
   "rank": 18
  },
  {
+  "name": "Anna",
+  "score": 1900,
+  "time": 151,
+  "rank": 19
+ },
+ {
+  "name": "CC",
+  "score": 1900,
+  "time": 180,
+  "rank": 20
+ },
+ {
   "name": "VV",
   "score": 1800,
   "time": 180,
-  "rank": 19
+  "rank": 21
  },
  {
   "name": "Norn",
   "score": 1100,
   "time": 161,
-  "rank": 20
+  "rank": 22
+ },
+ {
+  "name": "sam-sam",
+  "score": 900,
+  "time": 67,
+  "rank": 23
  },
  {
   "name": "Suzaku",
   "score": 900,
   "time": 148,
-  "rank": 21
+  "rank": 24
  },
  {
   "name": "Flamme",
   "score": 900,
   "time": 62,
-  "rank": 22
+  "rank": 25
  },
  {
   "name": "RAM",
   "score": 600,
   "time": 109,
-  "rank": 23
+  "rank": 26
+ },
+ {
+  "name": "Titeuf",
+  "score": 300,
+  "time": 25,
+  "rank": 27
  },
  {
   "name": "Immel",
   "score": 200,
   "time": 25,
-  "rank": 24
+  "rank": 28
+ },
+ {
+  "name": "cedric",
+  "score": 100,
+  "time": 18,
+  "rank": 29
+ },
+ {
+  "name": "Rigby",
+  "score": 100,
+  "time": 30,
+  "rank": 30
  },
  {
   "name": "Frieren",
   "score": 100,
   "time": 26,
-  "rank": 25
+  "rank": 31
  },
  {
   "name": "Stark",
   "score": 0,
   "time": 7,
-  "rank": 26
+  "rank": 32
  },
  {
   "name": "Malty",
   "score": 0,
   "time": 12,
-  "rank": 27
+  "rank": 33
  },
  {
   "name": "Sho Tucker",
   "score": 0,
   "time": 8,
-  "rank": 28
+  "rank": 34
  },
  {
   "name": "Bobo",
   "score": 0,
   "time": 5,
-  "rank": 29
+  "rank": 35
+ },
+ {
+  "name": "K",
+  "score": 0,
+  "time": 9,
+  "rank": 36
  }
 ]
