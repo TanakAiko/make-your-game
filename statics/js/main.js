@@ -7,6 +7,8 @@ import { TimeManager } from "./timeManager.js";
 var ongoingGame = false;
 var isPaused = false;
 var durationInSecond = 180;
+var indexPage = 0
+var maxPage = 0
 
 /*  up event listeners for each color in the `colorsList` array. When a color
 button with an id in the format `#apply_color` is clicked, it will change the CSS styles dynamically
@@ -110,42 +112,72 @@ const tableOfRanks = document.getElementById("showRank")
 tableOfRanks.addEventListener("click", () => {
   ws.send("ToR")
   ws.onmessage = (event) => {
-    console.log('data: ', event.data);
     displayTOR(event.data)
+
   }
 })
 
+document.getElementById("nextPage").addEventListener('click', (event => {
+  if (indexPage === maxPage) return
+    indexPage ++
+    tableOfRanks.click()
+}))
+
+document.getElementById("prevPage").addEventListener('click', (event => {
+  if (indexPage === 0) return
+    indexPage --
+    tableOfRanks.click()
+}))
+
 function displayTOR(data) {
   var tOr = document.getElementById("TOR")
-
+  
   tOr.innerHTML = `
   <caption>Table of Ranks</caption>
   <tr>
-      <th>Rank</th>
-      <th>Name</th>
-      <th>Score</th>
-      <th>Time</th>
+  <th>Rank</th>
+  <th>Name</th>
+  <th>Score</th>
+  <th>Time</th>
   </tr>`
-
-  var jsonData = JSON.parse(data)
+  
+  var tabPage = chunk(JSON.parse(data), 5)
+  maxPage = tabPage.length - 1
+  const jsonData = tabPage[indexPage]
 
   jsonData.forEach(score => {
     tOr.innerHTML += `
     <tr>
-      <th>${score.rank}</th>
-      <th>${score.name}</th>
-      <th>${score.score}</th>
-      <th>${score.time}</th>
+    <th>${score.rank}</th>
+    <th>${score.name}</th>
+    <th>${score.score}</th>
+    <th>${formatTime(score.time)}</th>
     </tr>
-  ` 
+    `
   });
-
+  document.getElementById("numPage").innerHTML = `
+    <p>${indexPage+1}/${maxPage+1}</p>
+  `
   openScoreModal()
+}
+
+function chunk(tab, size) {
+  const subTab = [];
+  for (let i = 0; i < tab.length; i += size) {
+    subTab.push(tab.slice(i, i + size));
+  }
+  return subTab;
 }
 
 document.getElementById("scoreBack").addEventListener('click', (event) => {
   closeScoreModal()
 })
+
+function formatTime(time) {
+  const minute = Math.floor(time / 60)
+  const second = time % 60
+  return `${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`
+}
 
 const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", () => {

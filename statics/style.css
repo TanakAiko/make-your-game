@@ -113,8 +113,13 @@ body {
     text-shadow: 1px 10px 5px rgb(61, 61, 61);
 }
 
-#startButton,
+#startButton {
+    width: 100px;
+    height: 50px;
+}
+
 #scoreBack {
+    margin-top: 10px;
     width: 100px;
     height: 50px;
 }
@@ -327,10 +332,14 @@ body {
 
 .score-modal-content {
     background-color: var(--purple);
+    display: flex;
     width: fit-content;
     height: fit-content;
     border-radius: 20px;
-    align-self: center;
+    /* align-self: center; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: 10px solid #888;
 }
 
