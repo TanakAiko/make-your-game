@@ -325,13 +325,15 @@ body {
 
 /* Contenu du modal */
 .modal-content {
-    /* background: var(--clear) ; */
-    /* background-size: cover; Ajuste la taille de l'image pour couvrir tout le contenu */
-    /* background-repeat: no-repeat; Évite la répétition de l'image */
-    margin: 15% auto;
+    background-color: var(--purple);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    /* margin: 15% auto;
     margin-left: 625px;
-    padding: 20px;
-    /* border: 1px solid #888; */
+    padding: 20px; */
     width: 400px;
     height: 450px;
     border-radius: 20px;
@@ -368,22 +370,27 @@ th {
 }
 
 h1 {
-    color: white;
+    /* color: white; */
     text-align: center;
 }
 
 #myScore {
-    background: #bb73e6;
+    /* background: #bb73e6;
+    margin-left: 110px; */
     width: 200px;
     height: 100px;
-    margin-left: 110px;
+    font-size: larger;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+#playerName{
+    background-color: var(--text);
+}
+
 .labelForPlayerName {
-    color: white;
+    /* color: white; */
     font-size: 25px;
     margin-top: 35px;
 }
